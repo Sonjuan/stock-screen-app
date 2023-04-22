@@ -2,18 +2,33 @@ import {useState, useEffect} from "react"
 import finnHub from "../apis/finnHub"
 
 export const StockList = () => {
+    const [stock, setStock] = useState()
     const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
     
     useEffect(() => {
+        let isMounted = true
         const fetchData = async () => {
             try {
-                const response = await finnHub.get(`/quote?symbol=MSFT&token=${process.env.REACT_APP_FINNHUB_API_KEY}`)
-                console.log(response)
+                const responses = Promise.all(watchList.map((stock) => {
+                    return finnHub.get("/quote", {
+                        params : {
+                            symbol: stock
+                        }
+                    })
+                }))
+
+                    
+                console.log(responses)
+                if (isMounted) {
+                    setStock(responses)
+                }
             }catch (err) {
 
             }
         }
         fetchData()
+
+        return () => (isMounted = false)
     }, [])
 
     return <div>StockList</div>
