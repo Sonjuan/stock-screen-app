@@ -3,7 +3,7 @@ import Chart from "react-apexcharts"
 
 
 export const StockChart = ({chartData, symbol}) => {
-    const [dateFormat, setDateFormat] = useState("24h") 
+    const [dateFormat, setDateFormat] = useState("") 
     const { day, week, year } = chartData
     
     const determineTimeFormat = () => {
@@ -19,14 +19,13 @@ export const StockChart = ({chartData, symbol}) => {
         }
     }
 
-    const color = (determineTimeFormat()[determineTimeFormat().length - 1].y - determineTimeFormat()[0].y) > 0 ? "#26C2381" : "#ed3419"
     const series = [{
         name : symbol,
         data : determineTimeFormat()
     }]
     
     const options = {
-        colors: [color],
+        colors: ["#00BAEC"],
         title : {
             text: symbol,
             align: "center",
@@ -53,7 +52,6 @@ export const StockChart = ({chartData, symbol}) => {
         }
     }
     
-    
     const renderButtonSelect = (button) => {
         const classes = "btn m-1 "
         if(button === dateFormat) {
@@ -62,8 +60,6 @@ export const StockChart = ({chartData, symbol}) => {
             return classes + "btn-outline-primary"
         }
     }
-
-
 
     return <div className="mt-5 p-4 shadow-sm bg-white">
         <Chart options={options} series={series} type="area" width="100%"/>
