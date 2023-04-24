@@ -14,7 +14,7 @@ const formatData = (data) => {
 }
 
 export const StockDetailPage = () => {
-    const [chartData, setChartData] = useState([])
+    const [chartData, setChartData] = useState()
     const { symbol } = useParams()
     
 
