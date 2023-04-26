@@ -1,6 +1,6 @@
 import { AutoComplete } from "../components/AutoComplete"
 import { StockList } from "../components/StockList"
-import trading from "../images/Screenshot from 2023-04-26 11-13-34.png"
+import trading from "../images/Logo.png"
 
 
 export const StockOverviewPage = () => {
