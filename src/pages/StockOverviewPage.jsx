@@ -1,12 +1,12 @@
 import { AutoComplete } from "../components/AutoComplete"
 import { StockList } from "../components/StockList"
-import trading from "../images/photo-1444653614773-995cb1ef9efa.avif"
+import trading from "../images/Screenshot from 2023-04-26 11-13-34.png"
 
 
 export const StockOverviewPage = () => {
     return <div>
         <div className="text-center">
-            <img style={{ width: 600, height: 300}} src={trading} alt="logo"/>
+            <img  src={trading} alt="logo"/>
         </div>
         <AutoComplete/>
         <StockList/>
