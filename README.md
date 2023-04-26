@@ -1,6 +1,10 @@
-This is Stock Screen App
+Stock Screen App using ReactJS
 
-To Execute, Follow this step
+All the information about the stocks or companies are fetched from https://finnhub.io
 
-git clone //githubURL
-$ npm start
+To Execute, Follow this steps
+
+```
+git clone https://github.com/Sonjuan/stock-screen-app.git
+npm start
+```
